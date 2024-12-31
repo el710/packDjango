@@ -17,6 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from Uweb.views import index , Index     ## ADD: router
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    ##path('', index),               ## ADD: f-router
+    path('', Index.as_view()),       ## ADD: class-method router
+    ## works as:
+    ## path('', TemplateView.as_view(template_name = "index.html")),       ## ADD: class-method router
 ]
