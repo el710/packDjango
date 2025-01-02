@@ -7,11 +7,22 @@ from django.views.generic import TemplateView
 """
     one dispatcher user's requests
 """
-def index(request):
+def index(in_request):
+    """
+        define variables for html
+    """
+    def_title = "Ucomm"
+    def_welcome = "Welcome to real world"
+
+    def_context = {
+        "title": def_title,
+        "welcome": def_welcome
+    }
+
     """
         return data as html from templates(settings) ->'DIRS': [BASE_DIR/'templates'],
     """
-    return render(request, "index.html")
+    return render(request=in_request, template_name="index.html", context=def_context)
 
 
 """
