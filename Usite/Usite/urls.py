@@ -23,6 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     ##path('', index),               ## ADD: f-router
     path('', Index.as_view()),       ## ADD: class-method router
-    ## works as:
-    ## path('', TemplateView.as_view(template_name = "index.html")),       ## ADD: class-method router
+        ## works as:
+        ## path('', TemplateView.as_view(template_name = "index.html")),       ## ADD: class-method router
 ]

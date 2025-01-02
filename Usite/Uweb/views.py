@@ -31,3 +31,13 @@ def index(in_request):
 class Index(TemplateView):
     template_name = "index.html"
 
+    def_title = "Ucomm"
+    def_welcome = "Welcome to real world"
+
+    def_context = {
+        "title": def_title,
+        "welcome": def_welcome
+    }
+
+    extra_context = def_context
+
