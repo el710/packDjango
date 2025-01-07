@@ -1,33 +1,37 @@
+{% load static %} <!-- for include static files: *jpg, *.css... -->
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8" />
     <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
 <body>
-    <h1>{{welcome}}</h1>
+    
+    <header>
+        {% block header%}
+            <h1>{{welcome}}</h1>
+        {% endblock %}
+    </header>
 
     <div>
         <h2>Today events</h2>
         <button>open schedule</button>
         <ul>
-            <li>05:00   wake up</li>
-            <li>05:30   breakfast</li>
-            <li>06:00   start learning</li>
-            <li>09:00   start develop Ucomm</li>
-            <li>16:00   start Yandex-taxi</li>
-            <li>22:00   go home</li>
-            <li>23:00   go to bed</li>
+            {% for i in events_list %}
+                <li>{{ i|title }}</li> <!--| upper, lower, floatformat:<digits after quot> -->
+            {%endfor%}
         </ul>
     </div>
+    {% block prolist%}
     <div>
-        <h2>Projects / Deals</h2> 
+        <h2><a href="ext/">Projects / Deals</a></h2> 
         <button>make new</button>
-        <ul>
-            <li>project: Health care</li>
-            <li>deal: Yandex-taxi</li>
-        </ul>        
-    </div>
+        click for list
 
+    </div>
+    {% endblock %}
+
+    {% include 'project.html'%}    <!-- show other html-->
 </body>
 </html>

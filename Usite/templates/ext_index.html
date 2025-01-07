@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% block header %}  <!-- use block from  "template.html" -->
+    <!-- here some new elements -->
+
+    {{ block.super }}
+
+    <!-- here some new elements -->
+     <p>extended version</p>
+{% endblock %}
+
+{% block prolist%}
+<div>
+    <h2>Projects / Deals</h2> 
+    <button>make new</button>
+    {% if len_list > 2 %}
+        <ul>
+            <li>project: Health care</li>
+            <li>deal: Yandex-taxi</li>
+        </ul>
+    {% else %}
+        <h3>No projects</h3>
+    {% endif %}
+</div>
+{% endblock %}
