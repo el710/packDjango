@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% block meta %}
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+    {% endblock %}
+
+    {% block link_rel %}
+        <link rel="stylesheet" href="{% static 'registration.css' %}">
+    {% endblock %}
+    
+    <title>{{title}}</title>
+
+</head>
+<body>
+    Previous data {{ hist }}
+    <form method="post">
+        {% csrf_token %}  <!-- Post forms must have csrf_token - for crumble data -->
+        <input type="text" name="data">
+        <button type="submit">Send</button>
+    </form>
+
+    <hr>
+
+    {% block sys_title%}
+        <div class="header">
+            <img class="photo" src="{% static 'CommU.png' %}" alt="***" ><br>
+            <p class="title">
+                CommU Authorization
+            </p>
+        </div>   
+    {%endblock%}
+    
+    {% block input_data %}
+        <div class="context">
+            <form method="post" >
+                {% csrf_token %}
+                <div>
+                    <label for="id_name">Username</label>                                      
+                    <input type="text" name="name" maxlength="100" id="id_name" > <!-- 'required' means we can't pass it-->
+                </div>
+                <div>
+                    <label for="id_email">Email</label>                                      
+                    <input type="email" name="email" maxlength="320" required id="id_email">
+                </div>
+                <div>
+                    <label for="id_pass">Password</label>
+                    <input type="password" name="user_password" minlength="8" id="id_pass" >
+                </div>
+                <div>
+                    <label for="id_repass">Repeat password</label>
+                    <input type="password" name="user_repassword" minlength="8"  id="id_repass">
+                </div>
+                <div>
+                    <label for="age">Age</label>
+                    <input type="number" name="user_age" maxlength="3" min="5" max="100" id="id_age">
+                </div>
+                <div>
+                    <label for="id_message">Message:</label>                                      
+                    <textarea name="message" cols="40" rows="10" required id="id_message" >some will...</textarea>
+                </div>
+                <div>
+                    <label for="id_box">Would you like premium status?</label>
+                    <input type="checkbox"  name="box" id="id_box">
+                </div>
+        
+                    <button class="button" type="submit">Enter</button>
+                </form>
+            </div>     
+        {% endblock%}
+
+
+    <hr>
+    <div class="context">{{ form }}</div>
+            
+
+</body>
+</html>

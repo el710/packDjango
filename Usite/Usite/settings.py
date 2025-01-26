@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Uweb',                                                        ## ADD: application directory
+    'Usite',                                                        ## ADD: application directory
 ]
 
 MIDDLEWARE = [

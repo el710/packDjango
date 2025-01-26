@@ -10,9 +10,13 @@
     
     <header>
         {% block header%}
-            <h1>{{welcome}}</h1>
+            <h1>{{ welcome }} {{name}}</h1>
         {% endblock %}
     </header>
+    <div align="right">
+        <a href="/post/">sign in</a>
+
+    </div>
 
     <div>
         <h2>Today events</h2>
